@@ -1,24 +1,24 @@
 -- Vehicle restrictions based on Discord roles
 local vehicleRestrictions = {
     ["Doge"] = {
-        roleID = "1304157773310988390",  -- Replace with VIP Discord Role ID
+        roleID = "1153314665795960844",  -- Replace with Discord Role ID
         vehicles = { "11imp", "14charg", "14tahoe" }
     },
     ["Fan"] = {
-        roleID = "1304157656260284527",  -- Replace with Admin Discord Role ID
+        roleID = "1153314665795960849",
         vehicles = { "18tahoe", "18tau" }
     },
     ["test"] = {
-        roleID = "333333333333333333",  -- Replace with Police Discord Role ID
+        roleID = "333333333333333333",
         vehicles = { "police1", "police2", "police3" }
     }
 }
 
 -- Function to check if a player has a required Discord role
 function hasDiscordRole(player, requiredRoleID)
-    local userRoles = exports.zDiscord:getUserRoles(player)
-    if userRoles then
-        for _, role in pairs(userRoles) do
+    local roles = exports.zdiscord:getRoles(source);
+    if roles then
+        for _, role in pairs(roles) do
             if tostring(role) == requiredRoleID then
                 return true
             end
